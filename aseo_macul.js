@@ -51,7 +51,6 @@ export async function aseo_macul(rol, dv) {
       total = total + payInt;
     });
 
-    console.log(total);
     if (total > 0) {
       return {data:{
         id:rol+'-'+dv,
@@ -61,6 +60,7 @@ export async function aseo_macul(rol, dv) {
     } else {
       return {data:{
         id:rol+'-'+dv,
+        measurement_date:fechaFormateada,
         invoice_amount: "Sin deuda/No registrado",
       }};
     }
