@@ -51,23 +51,23 @@ export async function aseo_macul(rol, dv) {
       total = total + payInt;
     });
 
-    if (total > 0) {
-      return {data:{
+    if (total >= 0) {
+      return {data:[{
         id:rol+'-'+dv,
         measurement_date:fechaFormateada,
         invoice_amount: total,
-      }};
+      }]};
     } else {
-      return {data:{
+      return {data:[{
         id:rol+'-'+dv,
         measurement_date:fechaFormateada,
         invoice_amount: "Sin deuda/No registrado",
-      }};
+      }]};
     }
   } catch {
-    return {data:{
+    return {data:[{
       invoice_amount: "Error al cargar página",
-    }};
+    }]};
   }
 }
 
