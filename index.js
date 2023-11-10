@@ -19,7 +19,7 @@ app.get(
       const dv= data.substring(data.indexOf('-')+1,data.length)
 
       const total = await aseo_macul(rol, dv);
-      res.status(200).send(JSON.stringify(total));
+      res.status(200).json(total);
     } else {
       return res.status(400).send({ id: "Error en rol" });
     }
