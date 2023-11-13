@@ -51,7 +51,7 @@ export async function aseo_macul(rol, dv) {
       total = total + payInt;
     });
 
-    if (total >= 0) {
+    if (total > 0) {
       return {data:{
         invoice_amount: total,
       }};
