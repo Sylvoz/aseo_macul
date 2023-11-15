@@ -3,17 +3,6 @@ import * as cheerio from "cheerio";
 
 export async function aseo_macul(rol, dv) {
   try {
-    // measurement_date info
-    const fechaActual = new Date();
-
-    const dia = fechaActual.getDate();
-    const mes = fechaActual.getMonth() + 1;
-    const año = fechaActual.getFullYear();
-    const hora = fechaActual.getHours();
-    const minutos = fechaActual.getMinutes();
-    const segundos = fechaActual.getSeconds();
-
-    const fechaFormateada = `${año}-${mes}-${dia} ${hora}:${minutos}:${segundos}`;
 
     // Scraping
     const response = await axios.get(
@@ -53,16 +42,16 @@ export async function aseo_macul(rol, dv) {
 
     if (total > 0) {
       return {data:{
-        invoice_amount: total,
+        total_debt_amount: total,
       }};
     } else {
       return {data:{
-        invoice_amount: "Sin deuda/No registrado",
+        total_debt_amount: "Sin deuda/No registrado",
       }};
     }
   } catch {
     return {data:{
-      invoice_amount: "Error al cargar página",
+      total_debt_amount: "Error al cargar página",
     }};
   }
 }
